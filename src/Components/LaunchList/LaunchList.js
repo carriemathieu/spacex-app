@@ -8,11 +8,12 @@ class LaunchList extends React.Component  {
     }
     
     // renders "loading" if no launchData
+    // data-testid allows us to test by retrieving specific ID
     render() {
         return (
             <div> 
-                <h1> LaunchList</h1>
-                {this.props.launchData.length <= 0 ? 'loading...' : this.displayLaunchInfo()}
+                <h1 data-testid="header">LaunchList</h1>
+                {this.props.launchData && this.props.launchData.length <= 0 ? 'loading...' : this.displayLaunchInfo()}
             </div>
         )
     }

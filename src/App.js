@@ -1,9 +1,10 @@
 import React from 'react'
-import LaunchList from './Components/LaunchList'
+import LaunchList from './Components/LaunchList/LaunchList'
 
 import './App.css';
 class App extends React.Component {
   // assigns apiData to launchInfo variable
+  // would like to refactor in future using hooks instead
   state = {
     launchInfo: []
   }
