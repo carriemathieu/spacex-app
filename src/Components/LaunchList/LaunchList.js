@@ -13,7 +13,9 @@ class LaunchList extends React.Component  {
         return (
             <div> 
                 <h1 data-testid="header">LaunchList</h1>
-                {this.props.launchData && this.props.launchData.length <= 0 ? 'loading...' : this.displayLaunchInfo()}
+                <div data-testid="launches">
+                    {this.props.launchData && this.props.launchData.length <= 0 ? 'loading...' : this.displayLaunchInfo()}
+                </div>
             </div>
         )
     }
