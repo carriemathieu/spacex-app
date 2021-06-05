@@ -23,7 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <LaunchList launchData={this.state}/>
+        <LaunchList launchData={this.state.launchInfo}/>
       </div>
     );
   }
