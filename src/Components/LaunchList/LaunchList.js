@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect, browserHistory, withRouter } from 'react-router-dom'
 
 class LaunchList extends React.Component  {
 
@@ -7,7 +7,7 @@ class LaunchList extends React.Component  {
     listLaunchInfo(launchData) {
         return launchData.map((launch, index) => {
             return (
-                <tr key={index} onClick={this.handleClick.bind(launch)}>
+                <tr key={index} onClick={this.handleClick.bind(launch)} data-testid="launch-row">
                     <td>{launch.flight_number}</td>
                     <td>{launch.date_local}</td>
                     <td>{launch.name}</td>
@@ -19,9 +19,7 @@ class LaunchList extends React.Component  {
 
     // links to presskit
     handleClick(e) {
-        // debugger
-        console.log("row clicked. e:",e)
-        console.log("this", this.links.presskit)
+        return this.links.presskit ? window.location.href=`${this.links.presskit}` : window.alert("No Presskit available for this launch.")
     }
 
     render() {
@@ -49,3 +47,4 @@ class LaunchList extends React.Component  {
 }
 
 export default LaunchList
+
