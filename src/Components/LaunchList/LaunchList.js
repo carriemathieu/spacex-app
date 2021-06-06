@@ -1,35 +1,35 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class LaunchList extends React.Component  {
-    
-    // gets called once info received from API
-    displayLaunchInfo() {
-        const launchData = this.props.launchData
-        console.log("launchData, launchData.length", launchData, launchData.length)
-        // return launchData.length > 0 ? console.log(launchData.length) : 'loading...' 
-        // this.listLaunchInfo(launchData)
-    }
 
+    // maps over API data for each column: Flight Number, Launch Year, Rocket Name, and Details
     listLaunchInfo(launchData) {
-        launchData.map((launch, index) => {
+        return launchData.map((launch, index) => {
             return (
-                <tr key={index}>
+                <tr key={index} onClick={this.handleClick.bind(launch)}>
                     <td>{launch.flight_number}</td>
+                    <td>{launch.date_local}</td>
+                    <td>{launch.name}</td>
+                    <td>{launch.details}</td>
                 </tr>
             )
         })
-        
-        // return this.props.launchData
     }
-    
-    // renders "loading" if no launchData
-    // data-testid allows us to test by retrieving specific ID
+
+    // links to presskit
+    handleClick(e) {
+        // debugger
+        console.log("row clicked. e:",e)
+        console.log("this", this.links.presskit)
+    }
+
     render() {
         return (
             <div> 
                 <h1 data-testid="header">SpaceX Launches</h1>
                 <div data-testid="launches">
-                    <table >
+                    <table id="launch-table">
                         <thead data-testid="launch-table">
                             <tr>
                                 <th data-testid="table-header">Flight Number</th>
@@ -39,7 +39,7 @@ class LaunchList extends React.Component  {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.displayLaunchInfo()}
+                            {this.props.launchData.length > 0 ? this.listLaunchInfo(this.props.launchData) : <tr><td colSpan="4">Loading...</td></tr>}
                         </tbody>
                     </table>
                 </div>
