@@ -18,7 +18,7 @@ class LaunchList extends React.Component  {
     }
 
     // links to presskit
-    handleClick(e) {
+    handleClick() {
         return this.links.presskit ? window.location.href=`${this.links.presskit}` : window.alert("No Presskit available for this launch.")
     }
 
