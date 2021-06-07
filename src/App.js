@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import LaunchList from './Components/LaunchList/LaunchList'
+import Pagination from './Components/Pagination/Pagination'
 import axios from 'axios'
 
 import './App.css';
@@ -9,7 +10,7 @@ const App = () => {
   // establishes state for pagination, default page is 1
   const [currentPage, setCurrentPage] = useState(1)
   // sets # of launches per page, 10
-  const [launchesPerPage, setLaunchesPerPage] = useState(10)
+  const [launchesPerPage] = useState(10)
 
   // fetches launch data from spaceX API, assigns response to launchInfo var
   // useEffect mimics componentDidMount()
@@ -29,10 +30,14 @@ const App = () => {
   // slices total launches between first launch and last launch on page
   const currentLaunches = launches.slice(indexOfFirstLaunch, indexOfLastLaunch)
 
+  // takes number argument from Pagination.js and changes currentPage state to number
+  const paginate = pageNumber => setCurrentPage(pageNumber)
+
   // instead of passing *all* launches, only passes in 10 at a time
   return (
     <div className="App">
       <LaunchList launchData={currentLaunches}/>
+      <Pagination launchesPerPage={launchesPerPage} totalLaunches={launches.length} paginate={paginate}/>
     </div>
   );
 }
