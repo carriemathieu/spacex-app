@@ -26,6 +26,7 @@ class LaunchList extends React.Component  {
         return (
             <div> 
                 <h1 data-testid="header">SpaceX Launches</h1>
+                <h6>To see the presskit for a specific launch, click on the appropriate row.</h6>
                 <div data-testid="launches">
                     <Table striped bordered hover variant="dark" id="launch-table" >
                         <thead data-testid="launch-table">
