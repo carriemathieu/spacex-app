@@ -27,7 +27,7 @@ class LaunchList extends React.Component  {
             <div> 
                 <h1 data-testid="header">SpaceX Launches</h1>
                 <div data-testid="launches">
-                    <Table striped bordered hover id="launch-table">
+                    <Table striped bordered hover variant="dark" id="launch-table" >
                         <thead data-testid="launch-table">
                             <tr>
                                 <th data-testid="table-header">Flight Number</th>
