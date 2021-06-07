@@ -22,14 +22,17 @@ const App = () => {
     fetchLaunches() 
    }, [])
   
-  // get launches on current page
+  // mulitiplies page # by launches per page (10) to get index of last launch on page
   const indexOfLastLaunch = currentPage * launchesPerPage
+  // subtracts last launch from # launches on page (10)
   const indexOfFirstLaunch = indexOfLastLaunch - launchesPerPage
+  // slices total launches between first launch and last launch on page
   const currentLaunches = launches.slice(indexOfFirstLaunch, indexOfLastLaunch)
 
+  // instead of passing *all* launches, only passes in 10 at a time
   return (
     <div className="App">
-      <LaunchList launchData={launches}/>
+      <LaunchList launchData={currentLaunches}/>
     </div>
   );
 }
