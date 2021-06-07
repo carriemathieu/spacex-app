@@ -31,3 +31,8 @@ tr:hover {
   color: #61dafb;
 }
 
+.pagination {
+  justify-content: center;
+}
+
+

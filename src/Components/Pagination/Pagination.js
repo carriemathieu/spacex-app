@@ -13,7 +13,7 @@ const Pagination = ({ launchesPerPage, totalLaunches, paginate }) => {
 
     // creates navbar for # of page numbers by mapping of pageNumbers array & adding click event to navigate to next page
     return (
-        <nav>
+        <nav id="pagination-navbar">
             <ul className="pagination" data-testid="pagination">
                 {pageNumbers.map(number => {
                     return <li key={number} className='page-item'>
