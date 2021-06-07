@@ -1,11 +1,15 @@
 # Space X Launches 🚀
 
-A list of all SpaceX launches using React. 
-react-spacex-launches.netlify.app
+View a list of all SpaceX Launches.\
+Deployment: [react-spacex-launches.netlify.app](react-spacex-launches.netlify.app)
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](src/appscreenshot.png)
+
+## Features
+- Paginate through SpaceX Launches API results
+- Click any given row to view presskit for that launch
 
 ## Tech Stack
 
