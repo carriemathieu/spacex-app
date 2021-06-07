@@ -1,10 +1,15 @@
 .App {
   text-align: center;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+#h1 {
+  font-family: 'Orbitron', sans-serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {
