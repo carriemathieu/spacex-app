@@ -1,4 +1,5 @@
 import React from 'react'
+import Table from 'react-bootstrap/Table'
 
 class LaunchList extends React.Component  {
 
@@ -8,7 +9,7 @@ class LaunchList extends React.Component  {
             return (
                 <tr key={index} onClick={this.handleClick.bind(launch)} data-testid="launch-row">
                     <td>{launch.flight_number}</td>
-                    <td>{launch.date_local}</td>
+                    <td>{launch.date_local.slice(0,4)}</td>
                     <td>{launch.name}</td>
                     <td>{launch.details}</td>
                 </tr>
@@ -26,7 +27,7 @@ class LaunchList extends React.Component  {
             <div> 
                 <h1 data-testid="header">SpaceX Launches</h1>
                 <div data-testid="launches">
-                    <table id="launch-table">
+                    <Table striped bordered hover id="launch-table">
                         <thead data-testid="launch-table">
                             <tr>
                                 <th data-testid="table-header">Flight Number</th>
@@ -38,7 +39,7 @@ class LaunchList extends React.Component  {
                         <tbody>
                             {this.props.launchData.length > 0 ? this.listLaunchInfo(this.props.launchData) : <tr><td colSpan="4">Loading...</td></tr>}
                         </tbody>
-                    </table>
+                    </Table>
                 </div>
             </div>
         )
