@@ -1,11 +1,18 @@
 .App {
   text-align: center;
-  font-family: 'Rajdhani', sans-serif;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+body {
+  background-image: url("space.jpeg");
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  background-attachment: fixed;
+  background-size: 100vw;
 }
 
 .h1 {
@@ -27,12 +34,14 @@ tr:hover {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 .pagination {
   justify-content: center;
+}
+
+.table-dark.table-bordered {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
