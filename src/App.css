@@ -11,8 +11,10 @@ body {
   background-image: url("space.jpeg");
   font-family: 'Rajdhani', sans-serif;
   color: white;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-attachment: fixed;
-  background-size: 100vw;
+  background-size: cover;
 }
 
 .h1 {
