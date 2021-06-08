@@ -8,10 +8,10 @@ class LaunchList extends React.Component  {
         return launchData.map((launch, index) => {
             return (
                 <tr key={index} onClick={this.handleClick.bind(launch)} data-testid="launch-row">
-                    <td>{launch.flight_number}</td>
-                    <td>{launch.date_local.slice(0,4)}</td>
-                    <td>{launch.name}</td>
-                    <td>{launch.details}</td>
+                    <td test-dataid="flight-number">{launch.flight_number}</td>
+                    <td test-dataid="flight-year">{launch.date_local.slice(0,4)}</td>
+                    <td test-dataid="launch-name">{launch.name}</td>
+                    <td test-dataid="launch-details">{launch.details}</td>
                 </tr>
             )
         })
