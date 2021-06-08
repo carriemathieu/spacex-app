@@ -17,7 +17,7 @@ const Pagination = ({ launchesPerPage, totalLaunches, paginate }) => {
             <ul className="pagination" data-testid="pagination">
                 {pageNumbers.map(number => {
                     return <li key={number} className='page-item'>
-                        <button onClick={() => paginate(number)}  className='page-link'>
+                        <button data-testid={`page-button-${number}`} onClick={() => paginate(number)}  className='page-link'>
                             {number}
                         </button>
                     </li>

@@ -8,10 +8,10 @@ class LaunchList extends React.Component  {
         return launchData.map((launch, index) => {
             return (
                 <tr key={index} onClick={this.handleClick.bind(launch)} data-testid="launch-row">
-                    <td>{launch.flight_number}</td>
-                    <td>{launch.date_local.slice(0,4)}</td>
-                    <td>{launch.name}</td>
-                    <td>{launch.details}</td>
+                    <td test-dataid="flight-number">{launch.flight_number}</td>
+                    <td test-dataid="flight-year">{launch.date_local.slice(0,4)}</td>
+                    <td test-dataid="launch-name">{launch.name}</td>
+                    <td test-dataid="launch-details">{launch.details}</td>
                 </tr>
             )
         })
@@ -30,7 +30,7 @@ class LaunchList extends React.Component  {
                 <div data-testid="launches">
                     <Table striped bordered hover variant="dark" id="launch-table" >
                         <thead data-testid="launch-table">
-                            <tr>
+                            <tr data-testid="table-row">
                                 <th data-testid="table-header">Flight Number</th>
                                 <th data-testid="table-header">Launch Year</th>
                                 <th data-testid="table-header">Rocket Name</th>
@@ -38,7 +38,7 @@ class LaunchList extends React.Component  {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.launchData.length > 0 ? this.listLaunchInfo(this.props.launchData) : <tr><td colSpan="4">Loading...</td></tr>}
+                            {this.props.launchData && this.props.launchData.length > 0 ? this.listLaunchInfo(this.props.launchData) : <tr><td colSpan="4">Loading...</td></tr>}
                         </tbody>
                     </Table>
                 </div>

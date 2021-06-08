@@ -1,8 +1,10 @@
 import React from 'react'
 import LaunchList from '../LaunchList'
+import Pagination from '../../Pagination/Pagination'
+import { fetchLaunches } from '../../../../src/App'
 
 // 'renders' component on virtual DOM
-import { render, fireEvent } from "@testing-library/react"
+import { render, fireEvent, waitFor } from "@testing-library/react"
 
 // allows us to use extend keyword
 import '@testing-library/jest-dom/extend-expect'
@@ -36,22 +38,23 @@ test("displays column headers correctly: Flight Number, Launch Year, Rocket Name
     expect(tableHeaders).not.toContain('')
 })
 
-test("API results are sorted in launch order", () => {
-    // expect(isAscending(element)).toBe(true)
+// need to do more research on testing API calls
+test("API results are sorted in launch order", async () => {
+    // const { findAllByTestId } = render(<LaunchList/>)
+
+    // // get all years in year column
+    // await waitFor(() => expect(fetchLaunches).toHaveBeenCalledTimes(1))
+    // const years = await findAllByTestId("flight-year")
 })
 
 test("row links to presskit", () => {
-    // clicks button
-    // fireEvent.click(element)
+    
     // expect(element.textContent).toBe("1")
 })
 
 test("can page through API results", () => {
-    // fireEvent.change(element, {
-    //     target: {
-    //         value: "5"
-    //     }
-    // })
-
-    // expect(inputEl.value).toBe("5")
+    const { findByTestId } = render(<Pagination/>)
+    const pageButton = findByTestId("page-button-2")
+    fireEvent.click(pageButton)
+   
 })
